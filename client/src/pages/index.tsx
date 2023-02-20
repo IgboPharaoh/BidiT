@@ -1,6 +1,8 @@
+import CustomButton from '@/components/CustomButton';
+import { Box, Flex, Text, Center, Stack, HStack } from '@chakra-ui/react';
 import Head from 'next/head';
 
-export default function Home() {
+export default function Index() {
     return (
         <>
             <Head>
@@ -9,7 +11,54 @@ export default function Home() {
                 <meta name='viewport' content='width=device-width, initial-scale=1' />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
-            <main></main>
+            <main>
+                <Flex>
+                    <Box bgColor='#f5f8ff' width='100%' height='100vh'>
+                        <Flex pl='80px' height='100%' flexDir='column' justifyContent='center' alignItems='flex-start'>
+                            <Stack spacing='0px'>
+                                <Text fontWeight='700' fontSize='64px'>
+                                    Buy Bids
+                                </Text>
+                                <Text fontWeight='700' fontSize='64px'>
+                                    Create Bids
+                                </Text>
+                                <Text color='#0000b3' fontWeight='700' fontSize='64px'>
+                                    BidiT
+                                </Text>
+                                <Text width='lg' pt='24px' fontWeight='500' fontSize='20px'>
+                                    BidiT offers you the opportunity to seamlessly use your your sats buying and selling different items at the best
+                                    price.
+                                </Text>
+                            </Stack>
+                            <HStack width='100%' spacing='16px' pt='24px'>
+                                <CustomButton
+                                    onClick={() => {
+                                        console.log('');
+                                    }}
+                                    backgroundColor='#0000b3'
+                                    width={{ base: '150px' }}
+                                    height='48px'
+                                >
+                                    Buy Bid
+                                </CustomButton>
+                                <CustomButton
+                                    onClick={() => {
+                                        console.log('');
+                                    }}
+                                    backgroundColor='transparent'
+                                    border='2px solid #0000b3 '
+                                    width={{ base: '150px' }}
+                                    height='48px'
+                                    color='black'
+                                >
+                                    Create Bid
+                                </CustomButton>
+                            </HStack>
+                        </Flex>
+                    </Box>
+                    <Box bgColor='#000066' width='100%' height='100vh'></Box>
+                </Flex>
+            </main>
         </>
     );
 }
