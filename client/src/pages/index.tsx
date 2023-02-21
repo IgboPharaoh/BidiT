@@ -1,6 +1,12 @@
+import { useState } from 'react';
+import CustomButton from '@/components/CustomButton';
+import { Box, Flex, Text, Stack, HStack, VStack, Progress } from '@chakra-ui/react';
 import Head from 'next/head';
+import { TimeState } from '@/interfaces';
 
-export default function Home() {
+export default function Index() {
+    const [timer, setTimer] = useState<TimeState>({ hours: new Date().getHours(), min: new Date().getMinutes(), sec: new Date().getSeconds() });
+
     return (
         <>
             <Head>
@@ -9,7 +15,128 @@ export default function Home() {
                 <meta name='viewport' content='width=device-width, initial-scale=1' />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
-            <main></main>
+            <main>
+                <Flex>
+                    <Box bgColor='#f5f8ff' width='100%' height='100vh'>
+                        <Flex pl='80px' height='100%' flexDir='column' justifyContent='center' alignItems='flex-start'>
+                            <Stack spacing='0px'>
+                                <Text fontWeight='700' fontSize='64px'>
+                                    Buy Bids
+                                </Text>
+                                <Text fontWeight='700' fontSize='64px'>
+                                    Create Bids
+                                </Text>
+                                <Text color='#0000b3' fontWeight='700' fontSize='64px'>
+                                    BidiT!
+                                </Text>
+                                <Text width='lg' pt='24px' fontWeight='500' fontSize='20px'>
+                                    BidiT offers you the opportunity to seamlessly use your sats to buy and sell different items at the best price.
+                                </Text>
+                            </Stack>
+                            <HStack width='100%' spacing='16px' pt='24px'>
+                                <CustomButton
+                                    onClick={() => {
+                                        console.log('');
+                                    }}
+                                    backgroundColor='#0000b3'
+                                    width={{ base: '150px' }}
+                                    height='48px'
+                                >
+                                    Buy Bid
+                                </CustomButton>
+                                <CustomButton
+                                    onClick={() => {
+                                        console.log('');
+                                    }}
+                                    backgroundColor='transparent'
+                                    border='2px solid #0000b3 '
+                                    width={{ base: '150px' }}
+                                    height='48px'
+                                    color='black'
+                                >
+                                    Create Bid
+                                </CustomButton>
+                            </HStack>
+                        </Flex>
+                    </Box>
+                    <Box bgColor='#000066' width='100%' height='100vh'>
+                        <Flex flexDir='column' height='100%' justifyContent='center' alignItems='center'>
+                            <Box borderRadius='16px' mb='16px' w='300px' h='300px' bgColor='white'></Box>
+                            <CustomButton
+                                onClick={() => {
+                                    console.log('');
+                                }}
+                                backgroundColor='black'
+                                width={{ base: '300px' }}
+                                height='48px'
+                            >
+                                Join Live Auction
+                            </CustomButton>
+
+                            <Box
+                                borderRadius='16px'
+                                justifyContent='flex-start'
+                                alignItems='center'
+                                flexDir='column'
+                                display='flex'
+                                mt='24px'
+                                h='250px'
+                                w='500px'
+                                bgColor='white'
+                            >
+                                <HStack mt='32px' spacing='8px' justifyContent='center' alignItems='flex-start'>
+                                    <VStack width='64px'>
+                                        <Text fontSize='36px' fontWeight='600'>
+                                            {timer.hours}
+                                        </Text>
+                                        <Text opacity='0.87' color='#2D2D2D' fontSize='12px' fontWeight='600'>
+                                            HOURS
+                                        </Text>
+                                    </VStack>
+                                    <Text fontSize='36px' fontWeight='600'>
+                                        :
+                                    </Text>
+                                    <VStack width='64px'>
+                                        <Text fontSize='36px' fontWeight='600'>
+                                            {timer.min}
+                                        </Text>
+                                        <Text opacity='0.87' color='#2D2D2D' fontSize='12px' fontWeight='600'>
+                                            MINS
+                                        </Text>
+                                    </VStack>
+                                    <Text fontSize='36px' fontWeight='600'>
+                                        :
+                                    </Text>
+                                    <VStack width='64px'>
+                                        <Text fontSize='36px' fontWeight='600'>
+                                            {/* {timer.sec} */}34
+                                        </Text>
+                                        <Text opacity='0.87' color='#2D2D2D' fontSize='12px' fontWeight='600'>
+                                            SECS
+                                        </Text>
+                                    </VStack>
+                                </HStack>
+                                <Progress
+                                    ringColor='#0000b3'
+                                    isIndeterminate
+                                    mt='16px'
+                                    borderRadius='16px'
+                                    width='60%'
+                                    height='10px'
+                                    colorScheme='messenger'
+                                    value={65}
+                                />
+                                <HStack alignItems='center' mt='28px'>
+                                    <Text fontWeight='600'>Top Bid :</Text>
+                                    <Text color='#002db3' fontWeight='600' fontSize='40px'>
+                                        858,000 <span style={{ fontSize: '14px', opacity: 0.8 }}>sats</span>
+                                    </Text>
+                                </HStack>
+                            </Box>
+                        </Flex>
+                    </Box>
+                </Flex>
+            </main>
         </>
     );
 }
