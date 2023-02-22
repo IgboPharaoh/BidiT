@@ -12,3 +12,19 @@ export type InputProps = {
     name: string;
     type: React.HTMLInputTypeAttribute;
 };
+
+export interface SelectPaymentInputProps {
+    paymentImage: string;
+    selected?: boolean;
+    radioValue?: 'bitcoin' | 'lightning';
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onClickFlex: () => void;
+    name: string;
+    checked?: boolean;
+}
+
+export interface PaymentChoiceProps {
+    selected: boolean;
+    onNextCallback: () => void;
+    onPreviousCallback: () => void;
+}
