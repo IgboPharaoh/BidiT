@@ -28,3 +28,6 @@ export interface PaymentChoiceProps {
     onNextCallback: () => void;
     onPreviousCallback: () => void;
 }
+export interface ItemInfoProps {
+    createBidCallback: () => void;
+}
